@@ -1,12 +1,14 @@
 import React from "react";
 import "./App.css";
-import Navbar from "./components/navbar/Navbar";
-import Footer from "./components/footer/Footer";
-import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
-import Login from "./pages/login/Login";
-import Home from "./pages/home/Home";
-import Register from "./pages/register/Register";
-import VoiceProfile from "./pages/voiceprofile/VoiceProfile";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
+import Login from "./pages/Login/Login";
+import Home from "./pages/Home/Home";
+import RegisterSeller from "./pages/Register/RegisterSeller";
+import VoiceProfile from "./pages/VoiceProfile/VoiceProfile";
+import BankAccount from "./pages/BankAccount/BankAccount";
+import RegisterBuyer from "./pages/Register/RegisterBuyer";
 const App = () => {
   const Layout = () => {
     return (
@@ -17,103 +19,20 @@ const App = () => {
       </div>
     );
   };
-
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Layout />,
-      children: [
-        {
-          path: "/",
-          element: <Home />,
-        },
-        {
-          path: "/login",
-          element: <Login />,
-        },
-        {
-          path: "/register",
-          element: (
-            <Register title={"TẠO TÀI KHOẢN GIỌNG ĐỌC"}>
-              <div className="col-item">
-                <span>Email*</span>
-                <input type="email" placeholder="Nhập Email của bạn" />
-              </div>
-              <div className="col-item">
-                <span>Mật Khẩu*</span>
-                <input type="password" placeholder="Nhập mật khẩu" />
-              </div>
-              <div className="col-item">
-                <span>Nhập lại mật khẩu*</span>
-                <input type="password" placeholder="Nhập lại mật khẩu" />
-              </div>
-              <div className="col-item">
-                <span>Số điện thoại*</span>
-                <input type="text" placeholder="Nhập số điện thoại" />
-              </div>
-              <div className="col-item">
-                <span>Họ và tên*</span>
-                <input type="text" placeholder="Nhập họ và tên" />
-              </div>
-              <div className="col-item">
-                <span>Địa chỉ*</span>
-                <input type="text" placeholder="Nhập địa chỉ" />
-              </div>
-              <div className="col-item">
-                <span>Ngày sinh*</span>
-                <input type="text" placeholder="Nhập ngày" />
-              </div>
-              <div className="col-item">
-                <span>Giới tính*</span>
-                <select name="" id="">
-                  <option value="">Nữ</option>
-                  <option value="">Nam</option>
-                </select>
-              </div>
-            </Register>
-          ),
-        },
-        {
-          path: "/register2",
-          element: (
-            <Register title={"TẠO TÀI KHOẢN TUYỂN DỤNG"}>
-              <div className="col-item">
-                <span>Email*</span>
-                <input type="email" placeholder="Nhập Email của bạn" />
-              </div>
-              <div className="col-item">
-                <span>Mật Khẩu*</span>
-                <input type="password" placeholder="Nhập mật khẩu" />
-              </div>
-              <div className="col-item">
-                <span>Nhập lại mật khẩu*</span>
-                <input type="password" placeholder="Nhập lại mật khẩu" />
-              </div>
-              <div className="col-item">
-                <span>Số điện thoại*</span>
-                <input type="text" placeholder="Nhập số điện thoại" />
-              </div>
-              <div className="col-item">
-                <span>Tên doanh nghiệp*</span>
-                <input type="text" placeholder="Nhập tên doanh nghiệp" />
-              </div>
-              <div className="col-item">
-                <span>Địa chỉ*</span>
-                <input type="text" placeholder="Nhập địa chỉ" />
-              </div>
-            </Register>
-          ),
-        },
-        {
-          path: "/voiceprofile",
-          element: <VoiceProfile />,
-        },
-      ],
-    },
-  ]);
   return (
     <>
-      <RouterProvider router={router} />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/bank" element={<BankAccount />} />
+            <Route path="/register" element={<RegisterSeller />} />
+            <Route path="/register2" element={<RegisterBuyer />} />
+            <Route path="/profile" element={<VoiceProfile />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };

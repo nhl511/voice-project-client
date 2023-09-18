@@ -11,7 +11,8 @@
   background: #fdf8c8;
   padding: 50px;
   width: 750px;
-  margin: 100px;
+  margin: 20px 100px 100px 100px;
+
 }
 
 .voiceprofile .voiceprofile-container .voiceprofile-card .col-item {
@@ -23,6 +24,8 @@
 .voiceprofile .voiceprofile-container .voiceprofile-card .col-item .sub-title {
   font-weight: bold;
   font-size: 20px;
+  text-align: center;
+  margin: 5px;
 }
 .voiceprofile
   .voiceprofile-container
@@ -46,6 +49,7 @@
   color: white;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: 20px;
 }
 
 .voiceprofile .voiceprofile-container .voiceprofile-card .col-item .btn-finish {
@@ -66,6 +70,7 @@
   flex-direction: column;
   gap: 10px;
   margin-top: 20px;
+  font-weight: 500;
 }
 .voiceprofile
   .voiceprofile-container
@@ -116,8 +121,9 @@
   .row-item
   .right
   input {
-  width: 50px;
+  width: 150px;
   font-size: 20px;
   padding: 5px 10px;
   border-radius: 10px;
 }
+
