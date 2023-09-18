@@ -6,6 +6,7 @@ import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import Login from "./pages/login/Login";
 import Home from "./pages/home/Home";
 import Register from "./pages/register/Register";
+import VoiceProfile from "./pages/voiceprofile/VoiceProfile";
 const App = () => {
   const Layout = () => {
     return (
@@ -102,6 +103,10 @@ const App = () => {
               </div>
             </Register>
           ),
+        },
+        {
+          path: "/voiceprofile",
+          element: <VoiceProfile />,
         },
       ],
     },

@@ -8,7 +8,7 @@
   justify-content: center;
 }
 .register .register-container .register-card {
-  padding: 50px;
+  margin: 50px;
   display: flex;
   width: 1000px;
 }
