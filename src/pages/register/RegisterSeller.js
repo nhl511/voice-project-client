@@ -8,7 +8,7 @@ const RegisterSeller = () => {
         <div className="register-card">
           <div className="left">
             <div className="center-item">
-              <h3>Tạo tài khoản giọng đọc</h3>
+              <h3>TẠO TÀI KHOẢN GIỌNG ĐỌC</h3>
               <p>Vui lòng nhập đầy đủ các trường được yêu cầu</p>
             </div>
             <div className="col-item">

@@ -37,8 +37,11 @@
   align-items: center;
 }
 .register .register-container .register-card .left .center-item p {
-  margin-top: 0;
-  font-size: 18px;
+  margin-top: 5px;
+  font-size: 15px;
+}
+.register .register-container .register-card .left .center-item h3 {
+  margin: 0;
 }
 
 .register .register-container .register-card .left .col-item input {
