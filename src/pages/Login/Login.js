@@ -1,6 +1,58 @@
-import React from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./Login.css";
+import axios from "../../api/axios";
+import AuthContext from "../../context/AuthProvider";
+
+const LOGIN_URL = "/api/VoiceSellers/Login";
+
 const Login = () => {
+  const emailRef = useRef();
+  const errRef = useRef();
+
+  const { setAuth } = useContext(AuthContext);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errMsg, setErrMsg] = useState("");
+
+  useEffect(() => {
+    emailRef.current.focus();
+  }, []);
+
+  useEffect(() => {
+    setErrMsg("");
+  }, [email, password]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        LOGIN_URL,
+        JSON.stringify({ email, password }),
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      console.log(JSON.stringify(response?.data));
+      const accessToken = response?.data?.accessToken;
+      const roles = response?.data?.roles;
+      setAuth({ email, password, roles, accessToken });
+      setEmail("");
+      setPassword("");
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg("No Server Response");
+      } else if (err.response?.status === 400) {
+        setErrMsg("Missing Username or Password");
+      } else if (err.response?.status === 401) {
+        setErrMsg("Sai Email hoặc mật khẩu");
+      } else {
+        setErrMsg("Login Failed");
+      }
+      errRef.current.focus();
+    }
+  };
   return (
     <div className="login">
       <div className="login-container">
@@ -8,31 +60,59 @@ const Login = () => {
           <div className="left">
             <div className="center-item">
               <h3>Đăng nhập</h3>
-              <p>Vui lòng đăng nhập để sử dụng đầy đủ các tính năng của VoiceMarket</p>
+              <p>
+                Vui lòng đăng nhập để sử dụng đầy đủ các tính năng của
+                VoiceMarket
+              </p>
             </div>
-            <div className="col-item">
-              <span>Email</span>
-              <input type="email" placeholder="Nhập email của bạn" />
-            </div>
-            <div className="col-item">
-              <span>Mật khẩu</span>
-              <input type="password" placeholder="Nhập mật khẩu" />
-            </div>
-            <div className="row-item">
-              <input type="checkbox" />
-              <i>Remember me</i>
-              <span>Quên mật khẩu?</span>
-            </div>
-            <div className="button">
-              <button>Đăng nhập</button>
-            </div>
+            <form onSubmit={handleSubmit}>
+              <div className="col-item">
+                <span>Email</span>
+                <input
+                  type="email"
+                  ref={emailRef}
+                  autoComplete="off"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                  placeholder="Nhập email của bạn"
+                  required
+                />
+              </div>
+              <div className="col-item">
+                <span>Mật khẩu</span>
+                <input
+                  type="password"
+                  placeholder="Nhập mật khẩu"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                  required
+                />
+              </div>
+              <p
+                ref={errRef}
+                className={errMsg ? "errmsg" : "offscreen"}
+                aria-live="assertive"
+              >
+                {errMsg}
+              </p>
+              <div className="row-item">
+                <input type="checkbox" />
+                <i>Remember me</i>
+                <span>Quên mật khẩu?</span>
+              </div>
+              <div className="button">
+                <button>Đăng nhập</button>
+              </div>
+            </form>
             <div className="google">
               <button>
                 <img src="/img/google.png" className="google-logo-img" />
               </button>
             </div>
             <div className="row-item">
-              <i>Bạn chưa có tài khoản VoiceMarket?<strong> Đăng ký</strong> ngay</i>
+              <i>
+                Bạn chưa có tài khoản VoiceMarket?<strong> Đăng ký</strong> ngay
+              </i>
             </div>
           </div>
           <div className="right">
@@ -53,7 +133,7 @@ const Login = () => {
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 export default Login;
