@@ -14,7 +14,11 @@
   object-fit: cover;
   border-radius: 40px;
 }
-
+.voicecard .main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .voicecard .main .info {
   font-weight: bold;
 }

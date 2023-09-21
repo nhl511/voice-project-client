@@ -13,7 +13,11 @@ const VoiceCard = () => {
         <div className="info">
           <span>Nguyen Hoang Long | Giong nam</span>
         </div>
-        <div className="play"></div>
+        <div className="play">
+          <audio controls>
+            <source src="" />
+          </audio>
+        </div>
       </div>
       <div className="type">
         <span>Giọng Miền Nam</span>
