@@ -37,9 +37,18 @@ const Login = () => {
         }
       );
       console.log(JSON.stringify(response?.data));
+      console.log(response?.data?.role);
+      console.log(response?.data?.email);
+
       const accessToken = response?.data?.accessToken;
-      const roles = response?.data?.roles;
-      setAuth({ email, password, roles });
+      const roleStr = response?.data?.role;
+
+      const role = roleStr.split(" ");
+
+      setAuth({ email, password, role });
+      console.log(email);
+      console.log(password);
+      console.log(role);
       setEmail("");
       setPassword("");
       navigate(from, { replace: true });

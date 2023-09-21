@@ -12,6 +12,11 @@ import RegisterBuyer from "./pages/Register/RegisterBuyer";
 import Voices from "./pages/Voices/Voices";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
 import Layout from "./pages/Layout/Layout";
+import Unauthorized from "./pages/Unauthorized/Unauthorized";
+const ROLES = {
+  buyer: "buyer",
+  seller: "voiceSeller",
+};
 const App = () => {
   return (
     <Routes>
@@ -20,10 +25,15 @@ const App = () => {
         <Route path="/bank" element={<BankAccount />} />
         <Route path="/register" element={<RegisterSeller />} />
         <Route path="/register2" element={<RegisterBuyer />} />
+        <Route path="/unauthorized" element={<Unauthorized />} />
 
-        <Route element={<RequireAuth />}>
+        <Route element={<RequireAuth allowedRoles={["buyer", "seller"]} />}>
           <Route path="/" element={<Home />} />
+        </Route>
+        <Route element={<RequireAuth allowedRoles={["buyer"]} />}>
           <Route path="/voices" element={<Voices />} />
+        </Route>
+        <Route element={<RequireAuth allowedRoles={["seller"]} />}>
           <Route path="/profile" element={<VoiceProfile />} />
         </Route>
       </Route>
