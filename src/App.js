@@ -9,6 +9,7 @@ import RegisterSeller from "./pages/Register/RegisterSeller";
 import VoiceProfile from "./pages/VoiceProfile/VoiceProfile";
 import BankAccount from "./pages/BankAccount/BankAccount";
 import RegisterBuyer from "./pages/Register/RegisterBuyer";
+import Voices from "./pages/Voices/Voices";
 const App = () => {
   const Layout = () => {
     return (
@@ -30,6 +31,7 @@ const App = () => {
             <Route path="/register" element={<RegisterSeller />} />
             <Route path="/register2" element={<RegisterBuyer />} />
             <Route path="/profile" element={<VoiceProfile />} />
+            <Route path="/voices" element={<Voices />} />
           </Route>
         </Routes>
       </BrowserRouter>
