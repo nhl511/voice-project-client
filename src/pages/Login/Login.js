@@ -39,7 +39,7 @@ const Login = () => {
       console.log(JSON.stringify(response?.data));
       const accessToken = response?.data?.accessToken;
       const roles = response?.data?.roles;
-      setAuth({ email, password });
+      setAuth({ email, password, roles });
       setEmail("");
       setPassword("");
       navigate(from, { replace: true });
