@@ -1,16 +1,18 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Login.css";
 import axios from "../../api/axios";
-import AuthContext from "../../context/AuthProvider";
-
+import useAuth from "../../hooks/useAuth";
+import { useLocation, useNavigate } from "react-router-dom";
 const LOGIN_URL = "/api/VoiceSellers/Login";
 
 const Login = () => {
   const emailRef = useRef();
   const errRef = useRef();
 
-  const { setAuth } = useContext(AuthContext);
-
+  const { setAuth } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
@@ -37,9 +39,10 @@ const Login = () => {
       console.log(JSON.stringify(response?.data));
       const accessToken = response?.data?.accessToken;
       const roles = response?.data?.roles;
-      setAuth({ email, password, roles, accessToken });
+      setAuth({ email, password });
       setEmail("");
       setPassword("");
+      navigate(from, { replace: true });
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No Server Response");
