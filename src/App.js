@@ -12,6 +12,8 @@ import RegisterBuyer from "./pages/Register/RegisterBuyer";
 import Voices from "./pages/Voices/Voices";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
 import Layout from "./pages/Layout/Layout";
+import ListVoice from "./pages/ListVoice/ListVoice";
+import VoiceDetail from "./pages/VoiceDetail/VoiceDetail";
 const App = () => {
   return (
     <Routes>
@@ -21,6 +23,8 @@ const App = () => {
         <Route path="/register" element={<RegisterSeller />} />
         <Route path="/register2" element={<RegisterBuyer />} />
         <Route path="/profile" element={<VoiceProfile />} />
+        <Route path="/listvoice" element={<ListVoice />} />
+        <Route path="/voicedetail" element={<VoiceDetail />} />
         <Route element={<RequireAuth />}>
           <Route path="/voices" element={<Voices />} />
         </Route>

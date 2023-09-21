@@ -1,5 +1,6 @@
 import React from "react";
 import "./VoiceCard.css";
+import ReactAudioPlayer from "react-audio-player";
 const VoiceCard = () => {
   return (
     <div className="voicecard">
@@ -14,9 +15,7 @@ const VoiceCard = () => {
           <span>Nguyen Hoang Long | Giong nam</span>
         </div>
         <div className="play">
-          <audio controls>
-            <source src="" />
-          </audio>
+          <ReactAudioPlayer src="/mp3/example_mp3.mp3" controls />
         </div>
       </div>
       <div className="type">
