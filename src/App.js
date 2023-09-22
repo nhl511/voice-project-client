@@ -13,10 +13,7 @@ import Voices from "./pages/Voices/Voices";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
 import Layout from "./pages/Layout/Layout";
 import Unauthorized from "./pages/Unauthorized/Unauthorized";
-const ROLES = {
-  buyer: "buyer",
-  seller: "voiceSeller",
-};
+
 const App = () => {
   return (
     <Routes>
