@@ -15,6 +15,7 @@ import Layout from "./pages/Layout/Layout";
 import Unauthorized from "./pages/Unauthorized/Unauthorized";
 import ListVoice from "./pages/ListVoice/ListVoice";
 import VoiceDetail from "./pages/VoiceDetail/VoiceDetail";
+import PersistLogin from "./components/PersistLogin/PersistLogin";
 
 const App = () => {
   return (
@@ -28,14 +29,16 @@ const App = () => {
         <Route path="/listvoice" element={<ListVoice />} />
         <Route path="/voicedetail" element={<VoiceDetail />} />
 
-        <Route element={<RequireAuth allowedRoles={["buyer", "seller"]} />}>
-          <Route path="/" element={<Home />} />
-        </Route>
-        <Route element={<RequireAuth allowedRoles={["buyer"]} />}>
-          <Route path="/voices" element={<Voices />} />
-        </Route>
-        <Route element={<RequireAuth allowedRoles={["seller"]} />}>
-          <Route path="/profile" element={<VoiceProfile />} />
+        <Route element={<PersistLogin />}>
+          <Route element={<RequireAuth allowedRoles={["buyer", "seller"]} />}>
+            <Route path="/" element={<Home />} />
+          </Route>
+          <Route element={<RequireAuth allowedRoles={["buyer"]} />}>
+            <Route path="/voices" element={<Voices />} />
+          </Route>
+          <Route element={<RequireAuth allowedRoles={["seller"]} />}>
+            <Route path="/profile" element={<VoiceProfile />} />
+          </Route>
         </Route>
       </Route>
     </Routes>

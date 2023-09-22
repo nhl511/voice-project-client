@@ -4,6 +4,7 @@ import VoiceCard from "../../components/VoiceCard/VoiceCard";
 
 const Voices = () => {
   const [openFilter, setOpenFilter] = useState(false);
+
   return (
     <div className="voices">
       <div className="voices-container">

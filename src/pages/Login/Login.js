@@ -37,18 +37,14 @@ const Login = () => {
         }
       );
       console.log(JSON.stringify(response?.data));
-      console.log(response?.data?.role);
-      console.log(response?.data?.email);
 
-      const accessToken = response?.data?.accessToken;
+      const token = response?.data?.token;
       const roleStr = response?.data?.role;
 
       const role = roleStr.split(" ");
+      window.localStorage.setItem("loggedIn", true);
+      setAuth({ email, password, role, token });
 
-      setAuth({ email, password, role });
-      console.log(email);
-      console.log(password);
-      console.log(role);
       setEmail("");
       setPassword("");
       navigate(from, { replace: true });
@@ -65,6 +61,7 @@ const Login = () => {
       errRef.current.focus();
     }
   };
+
   return (
     <div className="login">
       <div className="login-container">
