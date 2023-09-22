@@ -13,6 +13,8 @@ import Voices from "./pages/Voices/Voices";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
 import Layout from "./pages/Layout/Layout";
 import Unauthorized from "./pages/Unauthorized/Unauthorized";
+import ListVoice from "./pages/ListVoice/ListVoice";
+import VoiceDetail from "./pages/VoiceDetail/VoiceDetail";
 
 const App = () => {
   return (
@@ -23,6 +25,8 @@ const App = () => {
         <Route path="/register" element={<RegisterSeller />} />
         <Route path="/register2" element={<RegisterBuyer />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
+        <Route path="/listvoice" element={<ListVoice />} />
+        <Route path="/voicedetail" element={<VoiceDetail />} />
 
         <Route element={<RequireAuth allowedRoles={["buyer", "seller"]} />}>
           <Route path="/" element={<Home />} />
