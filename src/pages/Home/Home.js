@@ -8,10 +8,6 @@ const Home = () => {
       <Link to="/voices">
         <span>Go to Voices Page</span>
       </Link>
-      <br />
-      <Link to="/profile">
-        <span>Go to Profile Page</span>
-      </Link>
     </div>
   );
 };
