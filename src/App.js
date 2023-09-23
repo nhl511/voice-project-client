@@ -16,6 +16,7 @@ import Unauthorized from "./pages/Unauthorized/Unauthorized";
 import ListVoice from "./pages/ListVoice/ListVoice";
 import VoiceDetail from "./pages/VoiceDetail/VoiceDetail";
 import PersistLogin from "./components/PersistLogin/PersistLogin";
+import Posts from "./pages/Posts/Posts";
 
 const App = () => {
   return (
@@ -36,6 +37,10 @@ const App = () => {
           </Route>
           <Route element={<RequireAuth allowedRoles={["buyer"]} />}>
             <Route path="/voices" element={<Voices />} />
+          </Route>
+
+          <Route element={<RequireAuth allowedRoles={["seller"]} />}>
+            <Route path="/posts" element={<Posts />} />
           </Route>
         </Route>
       </Route>

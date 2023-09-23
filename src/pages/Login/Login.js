@@ -47,7 +47,12 @@ const Login = () => {
 
       setEmail("");
       setPassword("");
-      navigate(from, { replace: true });
+      if (roleStr === "buyer") {
+        navigate("/voices", { replace: true });
+      } else if (roleStr === "seller") {
+        navigate("/posts", { replace: true });
+      }
+      // navigate(from, { replace: true });
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No Server Response");
