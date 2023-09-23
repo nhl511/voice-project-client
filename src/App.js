@@ -15,6 +15,8 @@ import Layout from "./pages/Layout/Layout";
 import Unauthorized from "./pages/Unauthorized/Unauthorized";
 import ListVoice from "./pages/ListVoice/ListVoice";
 import VoiceDetail from "./pages/VoiceDetail/VoiceDetail";
+import ProjectUpload from "./pages/ProjectUpload/ProjectUpload";
+import ProjectApproval from "./pages/ProjectApproval/ProjectApproval";
 
 const App = () => {
   return (
@@ -33,6 +35,9 @@ const App = () => {
         </Route>
         <Route element={<RequireAuth allowedRoles={["buyer"]} />}>
           <Route path="/voices" element={<Voices />} />
+          <Route path="/upload" element={<ProjectUpload />} />
+          <Route path="/approval" element={<ProjectApproval />} />
+
         </Route>
         <Route element={<RequireAuth allowedRoles={["seller"]} />}>
           <Route path="/profile" element={<VoiceProfile />} />
