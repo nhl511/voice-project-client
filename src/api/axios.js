@@ -26,3 +26,11 @@ export const getVoiceList = async (
   const valuesArray = Object.values(response.data.results);
   return valuesArray;
 };
+
+export const getVoice = async (sellerId) => {
+  const response = await axiosOne.get(`/api/VoiceDetails/${sellerId}`);
+
+  // const valuesArray = Object.values(response.data);
+  // return valuesArray;
+  return response.data;
+};

@@ -2,7 +2,13 @@ import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Outlet,
+  Route,
+  Routes,
+  useParams,
+} from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 import RegisterSeller from "./pages/Register/RegisterSeller";
@@ -28,7 +34,7 @@ const App = () => {
         <Route path="/register2" element={<RegisterBuyer />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
         <Route path="/listvoice" element={<ListVoice />} />
-        <Route path="/voicedetail" element={<VoiceDetail />} />
+        <Route path="/voicedetail/:id" element={<VoiceDetail />} />
         <Route path="/profile" element={<VoiceProfile />} />
 
         <Route element={<PersistLogin />}>
