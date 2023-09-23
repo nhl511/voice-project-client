@@ -4,7 +4,6 @@ import ReactAudioPlayer from "react-audio-player";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
 const ListVoiceCard = ({ voice }) => {
-  console.log(voice);
   return (
     <div className="listvoice-card">
       <div className="listvoice-avatar">
@@ -15,14 +14,14 @@ const ListVoiceCard = ({ voice }) => {
       </div>
       <div className="listvoice-info">
         <div className="listvoice-personal">
-          <span>{}</span> <br />
-          <span>(100 người theo dõi)</span>
+          <span>{voice.voiceSeller.fullname}</span> <br />
+          <span>null</span>
         </div>
         <div className="listvoice-sound">
-          <ReactAudioPlayer src="/mp3/example_mp3.mp3" controls audio="1" />
+          <ReactAudioPlayer src={voice.mainVoiceLink} controls audio="1" />
         </div>
         <div className="listvoice-time">
-          <span>11 tháng 7 lúc 12:40</span>
+          <span>{voice.createDate}</span>
         </div>
       </div>
       <div className="listvoice-icon">

@@ -21,6 +21,8 @@ export const getVoiceList = async (
   const response = await axiosOne.get(
     `/api/VoiceDetails/${currentPage},${PageSize},${sortType},${isApproved}/GetPage`
   );
-  const valuesArray = Object.values(response.data);
+  console.log(response.data.results);
+
+  const valuesArray = Object.values(response.data.results);
   return valuesArray;
 };
