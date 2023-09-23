@@ -40,19 +40,18 @@ const Login = () => {
 
       const token = response?.data?.token;
       const roleStr = response?.data?.role;
-
+      const userId = response.data.voiceSeller.voiceSellerId;
       const role = roleStr.split(" ");
-      window.localStorage.setItem("loggedIn", true);
-      setAuth({ email, password, role, token });
+      setAuth({ userId, email, password, role, token });
 
       setEmail("");
       setPassword("");
-      if (roleStr === "buyer") {
-        navigate("/voices", { replace: true });
-      } else if (roleStr === "seller") {
-        navigate("/posts", { replace: true });
-      }
-      // navigate(from, { replace: true });
+      // if (roleStr === "buyer") {
+      //   navigate("/voices", { replace: true });
+      // } else if (roleStr === "seller") {
+      //   navigate("/posts", { replace: true });
+      // }
+      navigate("/", { replace: true });
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No Server Response");

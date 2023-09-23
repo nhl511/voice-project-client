@@ -23,27 +23,35 @@ import ListVoice from "./pages/ListVoice/ListVoice";
 import VoiceDetail from "./pages/VoiceDetail/VoiceDetail";
 import PersistLogin from "./components/PersistLogin/PersistLogin";
 import Posts from "./pages/Posts/Posts";
+import ProjectUpload from "./pages/ProjectUpload/ProjectUpload";
+import ProjectApproval from "./pages/ProjectApproval/ProjectApproval";
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="/" element={<Login />} />
+        {/* <Route path="/" element={<Login />} /> */}
+        <Route path="/login" element={<Login />} />
         <Route path="/bank" element={<BankAccount />} />
         <Route path="/register" element={<RegisterSeller />} />
         <Route path="/register2" element={<RegisterBuyer />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
         <Route path="/listvoice" element={<ListVoice />} />
         <Route path="/voicedetail/:id" element={<VoiceDetail />} />
-        <Route path="/profile" element={<VoiceProfile />} />
 
         <Route element={<PersistLogin />}>
+          <Route element={<RequireAuth allowedRoles={["buyer", "seller"]} />}>
+            <Route path="/" element={<Home />} />
+          </Route>
           <Route element={<RequireAuth allowedRoles={["buyer"]} />}>
             <Route path="/voices" element={<Voices />} />
+            <Route path="/upload" element={<ProjectUpload />} />
+            <Route path="/approval" element={<ProjectApproval />} />
           </Route>
-
           <Route element={<RequireAuth allowedRoles={["seller"]} />}>
             <Route path="/posts" element={<Posts />} />
+
+            <Route path="/profile" element={<VoiceProfile />} />
           </Route>
         </Route>
       </Route>

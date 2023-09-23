@@ -9,7 +9,7 @@ const ListVoice = () => {
   const [listVoice, setListVoice] = useState([]);
 
   useEffect(() => {
-    getVoiceList(currentPage, 5, "old", false).then((json) =>
+    getVoiceList(currentPage, 10, "old", false).then((json) =>
       setListVoice(json)
     );
   }, [currentPage]);
