@@ -15,7 +15,6 @@ const VoiceProfile = () => {
 
 
   const handleUploadVoice = async (event) => {
-    setUploadFile(event.target.files[0]);
 
     const headers = {
       'accept': '*/*',
@@ -31,6 +30,7 @@ const VoiceProfile = () => {
         .then((response) => {
           if (response.status === 200) {
             setMp3File(response.data);
+            setUploadFile(event.target.files[0]);
           }
         })
         .catch((error) => console.log(error))
