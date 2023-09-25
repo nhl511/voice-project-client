@@ -15,7 +15,7 @@ const VoiceDetail = () => {
   }, [id]);
   console.log(voice);
   return (
-    <>
+    <div className="voicedetail-card-container">
       {loading ? (
         <div>Loading</div>
       ) : (
@@ -178,7 +178,7 @@ const VoiceDetail = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

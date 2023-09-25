@@ -40,10 +40,16 @@ const Login = () => {
 
       const token = response?.data?.token;
       const roleStr = response?.data?.role;
-      const userId = response.data.voiceSeller.voiceSellerId;
+      // const userId = response.data.voiceSeller.voiceSellerId;
+      let userId = null;
+      if (roleStr === "seller") {
+        userId = response.data.voiceSeller.voiceSellerId;
+      } else if (roleStr === "buyer") {
+        userId = response.data.buyer.buyerId;
+      }
       const role = roleStr.split(" ");
       setAuth({ userId, email, password, role, token });
-
+      console.log(userId);
       setEmail("");
       setPassword("");
       // if (roleStr === "buyer") {

@@ -2,6 +2,7 @@ import React from "react";
 import "./ListVoiceCard.css";
 import ReactAudioPlayer from "react-audio-player";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import moment from "moment";
 
 const ListVoiceCard = ({ voice }) => {
   return (
@@ -21,7 +22,7 @@ const ListVoiceCard = ({ voice }) => {
           <ReactAudioPlayer src={voice.mainVoiceLink} controls audio="1" />
         </div>
         <div className="listvoice-time">
-          <span>{voice.createDate}</span>
+          <span>{moment(voice.createDate).format("DD/MM/yyyy")}</span>
         </div>
       </div>
       <div className="listvoice-icon">
