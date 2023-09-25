@@ -1,7 +1,7 @@
 import React from "react";
 import "./VoiceCard.css";
 import ReactAudioPlayer from "react-audio-player";
-const VoiceCard = () => {
+const VoiceCard = ({ voice }) => {
   return (
     <div className="voicecard">
       <div className="avatar">
@@ -12,10 +12,11 @@ const VoiceCard = () => {
       </div>
       <div className="main">
         <div className="info">
-          <span>Nguyen Hoang Long | Giong nam</span>
+          <span className="name">{voice.voiceSeller.fullname}</span>
+          <span class="voicegender">{` | Giọng ${voice.voiceGender}`}</span>
         </div>
         <div className="play">
-          <ReactAudioPlayer src="/mp3/example_mp3.mp3" controls />
+          <ReactAudioPlayer src={voice.mainVoiceLink} controls />
         </div>
       </div>
       <div className="type">
@@ -26,7 +27,7 @@ const VoiceCard = () => {
       <div className="stats">
         <div className="rating">
           <div className="star">
-            <span>5</span>
+            <span>{voice.voiceSeller.rateAvg}</span>
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Star_icon_stylized.svg/1200px-Star_icon_stylized.svg.png"
               alt=""
@@ -40,7 +41,7 @@ const VoiceCard = () => {
           <span>Lượt booking: 102</span>
         </div>
         <div className="price">
-          <span>Giá: 20,000đ/ 100 từ </span>
+          <span>{`Giá: ${voice.price}đ/ 100 từ`}</span>
         </div>
       </div>
       <div className="button">

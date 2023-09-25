@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Voices.css";
 import VoiceCard from "../../components/VoiceCard/VoiceCard";
+import { getVoiceList } from "../../api/axios";
 
 const Voices = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [voices, setVoices] = useState([]);
   const [openFilter, setOpenFilter] = useState(false);
 
+  useEffect(() => {
+    getVoiceList(currentPage, 10, "new", false).then((json) => setVoices(json));
+  }, [currentPage]);
+  console.log(voices);
   return (
     <div className="voices">
       <div className="voices-container">
@@ -79,10 +86,9 @@ const Voices = () => {
           </div>
         )}
         <div className="cards">
-          <VoiceCard />
-          <VoiceCard />
-          <VoiceCard />
-          <VoiceCard />
+          {voices.map((voice) => (
+            <VoiceCard key={voice.voiceDetailId} voice={voice} />
+          ))}
         </div>
       </div>
     </div>
