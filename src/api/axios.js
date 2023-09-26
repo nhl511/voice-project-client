@@ -34,3 +34,26 @@ export const getVoice = async (sellerId) => {
   // return valuesArray;
   return response.data;
 };
+
+export const voicesFilter = async (
+  currentPage,
+  PageSize,
+  isApproved,
+  inputName,
+  inputMinPrice,
+  inputMaxPrice,
+  inputTone,
+  inputRegion,
+  inputGender,
+  inputType,
+  inputProp,
+  inputRate
+) => {
+  const response = await axiosOne.get(
+    `/api/VoiceDetails/${currentPage},${PageSize},${isApproved}/SearchByFilter?search=${inputName}&fromPrice=${inputMinPrice}&toPrice=${inputMaxPrice}&tone=${inputTone}&region=${inputRegion}&gender=${inputGender}&property=${inputProp}&type=${inputType}&rate=${inputRate}`
+  );
+  console.log(response.data.results);
+
+  const valuesArray = Object.values(response.data.results);
+  return valuesArray;
+};
