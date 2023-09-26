@@ -2,6 +2,12 @@ import React from "react";
 import "./VoiceCard.css";
 import ReactAudioPlayer from "react-audio-player";
 const VoiceCard = ({ voice }) => {
+  const myString = voice.voiceTypes[0].voiceTypeDetail;
+  const myString2 = voice.voiceProperties[0].voicePropertyName;
+
+  const myArray = myString.split(", ");
+  const myArray2 = myString2.split(", ");
+
   return (
     <div className="voicecard">
       <div className="avatar">
@@ -20,9 +26,12 @@ const VoiceCard = ({ voice }) => {
         </div>
       </div>
       <div className="type">
-        <span>Giọng Miền Nam</span>
-        <span>Giọng chua</span>
-        <span>Giọng cao</span>
+        {myArray.map((item) => (
+          <span>{item}</span>
+        ))}
+        {myArray2.map((item2) => (
+          <span>{item2}</span>
+        ))}
       </div>
       <div className="stats">
         <div className="rating">

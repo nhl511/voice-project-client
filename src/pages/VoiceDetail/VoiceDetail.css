@@ -64,12 +64,23 @@
   border: none;
   background: transparent;
   font-weight: 600;
+  cursor: pointer;
 }
 .voicedetail-detail-info .voicedetail-show {
   display: grid;
   grid-template-columns: repeat(5, 15%);
   margin: 10px 0px;
   gap: 10px;
+}
+.voicedetail-detail-info .voicedetail-show .checkbox-wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.voicedetail-detail-info .voicedetail-show .checkbox-wrapper .checkbox {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
 }
 .voicedetail-label {
   font-size: 16px;
@@ -96,5 +107,5 @@
   color: #010000;
   font-weight: 600;
   margin: 20px 0px;
-  margin-left: 150px;
+  cursor: pointer;
 }

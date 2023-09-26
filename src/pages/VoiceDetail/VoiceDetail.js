@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./VoiceDetail.css";
 import ReactAudioPlayer from "react-audio-player";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import axios, { getVoice } from "../../api/axios";
 import moment from "moment";
 
 const VERIFY_VOICE_URL = "/api/VoiceDetails";
 
 const VoiceDetail = () => {
+  const navigate = useNavigate();
+
   const { id } = useParams();
   const [voice, setVoice] = useState();
   const [loading, setLoading] = useState(true);
@@ -77,20 +79,17 @@ const VoiceDetail = () => {
       voiceTypes: [
         {
           voiceSellerId: Number(sellerId),
-
           voiceTypeDetail: checkValue.join(", "),
         },
       ],
       voiceProperties: [
         {
           voiceSellerId: Number(sellerId),
-
           voicePropertyName: checkValue2.join(", "),
         },
       ],
       voiceSeller: null,
     };
-
     axios
       .post(VERIFY_VOICE_URL, postData, {
         headers: {
@@ -99,13 +98,12 @@ const VoiceDetail = () => {
       })
       .then((response) => {
         console.log("Response:", response.data);
+        navigate("/listvoice");
       })
       .catch((error) => {
         console.error("Error:", error);
       });
   };
-
-  console.log(typeof checkValue.join(", "));
 
   return (
     <div className="voicedetail">
@@ -241,77 +239,86 @@ const VoiceDetail = () => {
                 <div className="voicedetail-detail-info ">
                   <span>Chất giọng</span>
                   <div className="voicedetail-show">
-                    <div>
+                    <div className="checkbox-wrapper">
                       <input
                         type="checkbox"
                         value="Mạnh mẽ"
                         onChange={handleChangeCheck}
+                        className="checkbox"
                       />
                       <label className="voicedetail-label">Mạnh mẽ</label>
                     </div>
-                    <div>
+                    <div className="checkbox-wrapper">
                       <input
                         type="checkbox"
                         value="Trẻ trung"
                         onChange={handleChangeCheck}
+                        className="checkbox"
                       />
                       <label className="voicedetail-label">Trẻ trung</label>
                     </div>
-                    <div>
+                    <div className="checkbox-wrapper">
                       <input
                         type="checkbox"
                         value="Trung niên"
                         onChange={handleChangeCheck}
+                        className="checkbox"
                       />
                       <label className="voicedetail-label">Trung niên</label>
                     </div>
-                    <div>
+                    <div className="checkbox-wrapper">
                       <input
                         type="checkbox"
                         value="Giọng ấm"
                         onChange={handleChangeCheck}
+                        className="checkbox"
                       />
                       <label className="voicedetail-label">Giọng ấm</label>
                     </div>
-                    <div>
+                    <div className="checkbox-wrapper">
                       <input
                         type="checkbox"
                         value="Tươi mới"
                         onChange={handleChangeCheck}
+                        className="checkbox"
                       />
                       <label className="voicedetail-label">
                         Tươi mới <br />
                       </label>
                     </div>
-                    <div>
+                    <div className="checkbox-wrapper">
                       <input
                         type="checkbox"
                         value="Hài hước"
                         onChange={handleChangeCheck}
+                        className="checkbox"
                       />
                       <label className="voicedetail-label">Hài hước</label>
                     </div>
-                    <div>
+                    <div className="checkbox-wrapper">
                       <input
                         type="checkbox"
                         value="Tự tin"
                         onChange={handleChangeCheck}
+                        className="checkbox"
                       />
                       <label className="voicedetail-label">Tự tin</label>
                     </div>
-                    <div>
+                    <div className="checkbox-wrapper">
                       <input
                         type="checkbox"
                         value="Dịu dàng"
                         onChange={handleChangeCheck}
+                        className="checkbox"
                       />
                       <label className="voicedetail-label">Dịu dàng</label>
                     </div>
-                    <div>
+                    <div className="checkbox-wrapper">
                       <input
                         type="checkbox"
                         value="Trẻ em"
                         onChange={handleChangeCheck}
+                        className="checkbox"
                       />
                       <label className="voicedetail-label">Trẻ em</label>
                     </div>
@@ -321,61 +328,68 @@ const VoiceDetail = () => {
                   <span>Tính chất phù hợp</span>
                   <br />
                   <div className="voicedetail-show">
-                    <div>
+                    <div className="checkbox-wrapper">
                       <input
                         type="checkbox"
                         value="Quảng cáo"
                         onChange={handleChangeCheck2}
+                        className="checkbox"
                       />
                       <label className="voicedetail-label">Quảng cáo</label>
                     </div>
-                    <div>
+                    <div className="checkbox-wrapper">
                       <input
                         type="checkbox"
                         value="Kể Chuyện"
                         onChange={handleChangeCheck2}
+                        className="checkbox"
                       />
                       <label className="voicedetail-label">Kể chuyện</label>
                     </div>
-                    <div>
+                    <div className="checkbox-wrapper">
                       <input
                         type="checkbox"
                         value="Thuyết trình"
                         onChange={handleChangeCheck2}
+                        className="checkbox"
                       />
                       <label className="voicedetail-label">Thuyết trình</label>
                     </div>
-                    <div>
+                    <div className="checkbox-wrapper">
                       <input
                         type="checkbox"
                         value="Thuyết minh"
                         onChange={handleChangeCheck2}
+                        className="checkbox"
                       />
                       <label className="voicedetail-label">Thuyết minh</label>
                     </div>
-                    <div>
+                    <div className="checkbox-wrapper">
                       <input
                         type="checkbox"
                         value="Review phim"
                         onChange={handleChangeCheck2}
+                        className="checkbox"
                       />
                       <label className="voicedetail-label">
                         Review phim <br />
                       </label>
                     </div>
-                    <div>
+                    <div className="checkbox-wrapper">
                       <input
                         type="checkbox"
                         value="Thời sự"
                         onChange={handleChangeCheck2}
+                        className="checkbox"
                       />
                       <label className="voicedetail-label">Thời sự</label>
                     </div>
-                    <div>
+                    <div className="checkbox-wrapper">
                       <input
                         type="checkbox"
                         value="Thông báo"
                         onChange={handleChangeCheck2}
+                        className="checkbox"
                       />
                       <label className="voicedetail-label">Thông báo</label>
                     </div>

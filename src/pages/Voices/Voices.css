@@ -6,6 +6,7 @@
 
 .voices .voices-container {
   width: 1400px;
+  min-height: 100vh;
 }
 
 .voices .voices-container .cards {

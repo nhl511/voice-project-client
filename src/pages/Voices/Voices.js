@@ -9,7 +9,7 @@ const Voices = () => {
   const [openFilter, setOpenFilter] = useState(false);
 
   useEffect(() => {
-    getVoiceList(currentPage, 10, "new", false).then((json) => setVoices(json));
+    getVoiceList(currentPage, 10, "new", true).then((json) => setVoices(json));
   }, [currentPage]);
   console.log(voices);
   return (
