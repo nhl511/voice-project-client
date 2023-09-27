@@ -25,6 +25,7 @@ const Voices = () => {
   }, [currentPage]);
 
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
 
     voicesFilter(

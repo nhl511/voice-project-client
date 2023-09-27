@@ -27,6 +27,22 @@ export const getVoiceList = async (
   return valuesArray;
 };
 
+export const getVoiceListAndSearch = async (
+  currentPage,
+  PageSize,
+  sortType,
+  isApproved,
+  inputSearch
+) => {
+  const response = await axiosOne.get(
+    `/api/VoiceDetails/${currentPage},${PageSize},${sortType},${isApproved}/GetPage?search=${inputSearch}`
+  );
+  console.log(response.data.results);
+
+  const valuesArray = Object.values(response.data.results);
+  return valuesArray;
+};
+
 export const getVoice = async (sellerId) => {
   const response = await axiosOne.get(`/api/VoiceDetails/${sellerId}`);
 
