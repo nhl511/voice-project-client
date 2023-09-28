@@ -1,7 +1,8 @@
 import React from "react";
 import "./PostCard.css";
+import moment from "moment";
 
-const PostCard = () => {
+const PostCard = ({ post }) => {
   return (
     <div className="postcard">
       <div className="thumbnail">
@@ -12,16 +13,48 @@ const PostCard = () => {
       </div>
       <div className="content">
         <div className="title">
-          <span>Quảng cáo mì Hảo Hảo</span>
+          <span>{post.title}</span>
         </div>
         <div className="info">
-          <span>Ngày đăng: 28/05/2023</span>
-          <span>Giá: 200,000 đ</span>
+          <span>
+            <img
+              src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/10-512.png"
+              alt=""
+            />
+            <b>{moment(post.deadline).format("DD/MM/yyyy")}</b>
+          </span>
+          <span>
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/156/156764.png"
+              alt=""
+            />
+            <b> {post.price} VNĐ</b>
+          </span>
         </div>
         <div className="require">
-          <span>Giọng miền nam</span>
-          <span>Giọng cao</span>
-          <span>Phát âm tốt</span>
+          <span>{`Giọng ${post.voiceRegion}`}</span>
+          {post.voiceTone === 1 ? (
+            <span>Giọng rất thấp</span>
+          ) : post.voiceTone === 2 ? (
+            <span>Giọng thấp</span>
+          ) : post.voiceTone === 3 ? (
+            <span>Giọng vừa</span>
+          ) : post.voiceTone === 4 ? (
+            <span>Giọng cao</span>
+          ) : post.voiceTOne === 5 ? (
+            <span>Giọng rất cao</span>
+          ) : null}
+          {post.voicePronouce === 1 ? (
+            <span>Phát âm kém</span>
+          ) : post.voicePronouce === 2 ? (
+            <span>Phát âm trung bình</span>
+          ) : post.voicePronouce === 3 ? (
+            <span>Phát âm khá</span>
+          ) : post.voicePronouce === 4 ? (
+            <span>Phát âm tốt</span>
+          ) : post.voicePronouce === 5 ? (
+            <span>Phát âm rất tốt</span>
+          ) : null}
         </div>
         <div className="button">
           <button>Ứng tuyển ngay</button>
