@@ -1,8 +1,8 @@
-.approve-status {
-  border: 2px solid #2ecc71;
+.receiving-status {
+  border: 2px solid #e67e22;
   width: max-content;
   padding: 5px 20px;
-  color: #2ecc71;
+  color: #e67e22;
   border-radius: 20px;
   font-weight: bold;
 }

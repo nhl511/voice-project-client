@@ -5,6 +5,8 @@
 .voiceprofile .voiceprofile-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 1400px;
 }
 .voiceprofile .voiceprofile-container .voiceprofile-card {
@@ -12,7 +14,6 @@
   padding: 50px;
   width: 750px;
   margin: 20px 100px 100px 100px;
-
 }
 
 .voiceprofile .voiceprofile-container .voiceprofile-card .col-item {
@@ -126,4 +127,3 @@
   padding: 5px 10px;
   border-radius: 10px;
 }
-

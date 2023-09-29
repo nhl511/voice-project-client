@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ProjectApproval.css";
-import ListProjectApprovalCard from "../../components/ListProjectApprovalCard/ListProjectApprovalCard";
 import { getPostList } from "../../api/axios";
+import PostedProjectCard from "../../components/PostedProjectCard/PostedProjectCard";
 
 const ProjectApproval = () => {
   const [posts, setPosts] = useState([]);
@@ -25,7 +25,7 @@ const ProjectApproval = () => {
         </div>
         <div className="posts">
           {posts.map((post) => (
-            <ListProjectApprovalCard post={post} />
+            <PostedProjectCard post={post} />
           ))}
         </div>
       </div>

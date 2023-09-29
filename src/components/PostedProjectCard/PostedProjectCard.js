@@ -1,9 +1,15 @@
 import React, { useState } from "react";
-import "./ListProjectApprovalCard.css";
-import ApproveStatus from "../Status/ApproveStatus";
-import DenyStatus from "../Status/DenyStatus";
+import "./PostedProjectCard.css";
 
-const ListProjectApprovalCard = ({ post }) => {
+import WaitingStatus from "../Status/WaitingStatus/WaitingStatus";
+import RejectStatus from "../Status/RejectStatus/RejectStatus";
+import InvitationStatus from "../Status/InvitationSendStatus/InvitationSendStatus";
+import DenyStatus from "../Status/DenyStatus/DenyStatus";
+import FinishStatus from "../Status/FinishStatus/FinishStatus";
+import RecruitmentStatus from "../Status/RecruitmentStatus/RecruitmentStatus";
+import ReceivingStatus from "../Status/ReceivingStatus/ReceivingStatus";
+
+const PostedProjectCard = ({ post }) => {
   const [dropDown, setDropDown] = useState(false);
 
   const displayDropdown = () => {
@@ -30,7 +36,7 @@ const ListProjectApprovalCard = ({ post }) => {
             <span>Chưa thanh toán</span>
           </div> */}
           <div className="lpa-icon">
-            <ApproveStatus />
+            <ReceivingStatus />
           </div>
         </div>
       </div>
@@ -73,4 +79,4 @@ const ListProjectApprovalCard = ({ post }) => {
   );
 };
 
-export default ListProjectApprovalCard;
+export default PostedProjectCard;

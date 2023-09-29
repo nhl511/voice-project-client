@@ -73,11 +73,11 @@ const VoiceProfile = () => {
 
   return (
     <div>
-      <div className="title">
-        <h3>Hoàn tất Profile giọng đọc của bạn</h3>
-      </div>
       <div className="voiceprofile">
         <div className="voiceprofile-container">
+          <div className="title">
+            <h3>Hoàn tất Profile giọng đọc của bạn</h3>
+          </div>
           <div className="voiceprofile-card">
             <div className="col-item">
               <span className="sub-title">
