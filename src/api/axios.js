@@ -110,3 +110,10 @@ export const getPaymentInfo = async (projectId) => {
   );
   return response.data;
 };
+
+export const getProjectApprovalDetail = async (projectId) => {
+  const response = await axiosOne.get(
+    `/api/VoiceProjects/GetByID/${projectId}`
+  );
+  return response.data;
+};
