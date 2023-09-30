@@ -83,3 +83,17 @@ export const voicesFilter = async (
   const valuesArray = Object.values(response.data.results);
   return valuesArray;
 };
+
+export const getPaymentInfo = async (projectId) => {
+  const response = await axiosOne.get(
+    `/api/VoiceProjects/GetPaymentInformation/${projectId}`
+  );
+  return response.data;
+};
+
+export const getProjectApprovalDetail = async (projectId) => {
+  const response = await axiosOne.get(
+    `/api/VoiceProjects/GetByID/${projectId}`
+  );
+  return response.data;
+};

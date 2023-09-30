@@ -8,6 +8,8 @@ import DenyStatus from "../Status/DenyStatus/DenyStatus";
 import FinishStatus from "../Status/FinishStatus/FinishStatus";
 import RecruitmentStatus from "../Status/RecruitmentStatus/RecruitmentStatus";
 import ReceivingStatus from "../Status/ReceivingStatus/ReceivingStatus";
+import { getPaymentInfo } from "../../api/axios";
+import { Link } from "react-router-dom";
 
 const PostedProjectCard = ({ post }) => {
   const [dropDown, setDropDown] = useState(false);
@@ -64,7 +66,12 @@ const PostedProjectCard = ({ post }) => {
             </div>
             <div className="button-wrapper">
               <div className="lpa-dropdown-detail-button">
-                <button>Xem chi tiết dự án</button>
+                <Link
+                  to={`/projectmanagementdetail/${post.voiceProjectId}`}
+                  className="link"
+                >
+                  <button>Xem chi tiết dự án</button>
+                </Link>
               </div>
               <div className="lpa-dropdown-confirm-button">
                 <button>Duyệt</button>
