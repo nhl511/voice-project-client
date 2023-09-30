@@ -1,6 +1,9 @@
 import React from "react";
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import {
+  Route,
+  Routes,
+} from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 import RegisterSeller from "./pages/Register/RegisterSeller";
@@ -16,10 +19,9 @@ import VoiceDetail from "./pages/VoiceDetail/VoiceDetail";
 import PersistLogin from "./components/PersistLogin/PersistLogin";
 import Posts from "./pages/Posts/Posts";
 import ProjectUpload from "./pages/ProjectUpload/ProjectUpload";
-import PostedProjectsManagement from "./pages/PostedProjectsManagement/PostedProjectsManagement";
+import ProjectManage from "./pages/ProjectManage/ProjectManage";
 import SendProject from "./pages/SendProject/SendProject";
 import ProjectDescriptionToApply from "./pages/ProjectDescriptionForSeller/ProjectDescriptionToApply";
-// import ProjectApproval from "./pages/ProjectApproval/ProjectApproval";
 import Recruitment from "./pages/Recruitment/Recruitment";
 import ProjectDescriptionConfirm from "./pages/ProjectDescriptionForSeller/ProjectDescriptionConfirm";
 import AcceptApplication from "./pages/AcceptApplication/AcceptApplication";
@@ -32,6 +34,7 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/bank" element={<BankAccount />} />
         <Route path="/register" element={<RegisterSeller />} />
@@ -40,27 +43,22 @@ const App = () => {
         <Route path="/lv" element={<ListVoice />} />
         <Route path="/voicedetail/:id" element={<VoiceDetail />} />
 
-        <Route path="/aa" element={<AcceptApplication />} />
-        <Route path="/ptfs" element={<ProjectDetailForSeller />} />
-        <Route path="/uftpd" element={<UploadFileToProjectDetail />} />
-        <Route path="/ptfb" element={<ProjectDetailForBuyer />} />
-        <Route
-          path="/postedprojectsmanagement"
-          element={<PostedProjectsManagement />}
-        />
-        <Route
-          path="/projectmanagementdetail/:id"
-          element={<ProjectApprovalAtDetail />}
-        />
+        <Route path="/paad" element={<ProjectApprovalAtDetail />} />
+
 
         <Route element={<PersistLogin />}>
           <Route element={<RequireAuth allowedRoles={["buyer", "seller"]} />}>
             <Route path="/" element={<Home />} />
+            <Route path="/pm" element={<ProjectManage />} />
+
           </Route>
           <Route element={<RequireAuth allowedRoles={["buyer"]} />}>
             <Route path="/voices" element={<Voices />} />
-            <Route path="/upload" element={<ProjectUpload />} />
+            <Route path="/aa" element={<AcceptApplication />} />
+            <Route path="/ptfb" element={<ProjectDetailForBuyer />} />
             <Route path="/sp" element={<SendProject />} />
+            <Route path="/upload" element={<ProjectUpload />} />
+
           </Route>
           <Route element={<RequireAuth allowedRoles={["seller"]} />}>
             <Route path="/posts" element={<Posts />} />
@@ -68,6 +66,9 @@ const App = () => {
             <Route path="/pt1" element={<ProjectDescriptionToApply />} />
             <Route path="/pt2" element={<ProjectDescriptionConfirm />} />
             <Route path="/recruitment" element={<Recruitment />} />
+            <Route path="/ptfs" element={<ProjectDetailForSeller />} />
+            <Route path="/uftpd" element={<UploadFileToProjectDetail />} />
+
           </Route>
         </Route>
       </Route>

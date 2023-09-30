@@ -33,7 +33,6 @@ const VoiceProfile = () => {
           if (response.status === 200) {
             setMp3File(response.data);
             setUploadFile(event.target.files[0]);
-            setUploadFile(event.target.files[0]);
           }
         })
         .catch((error) => console.log(error));

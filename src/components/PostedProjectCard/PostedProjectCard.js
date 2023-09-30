@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./PostedProjectCard.css";
 
 import WaitingStatus from "../Status/WaitingStatus/WaitingStatus";
@@ -8,19 +8,8 @@ import DenyStatus from "../Status/DenyStatus/DenyStatus";
 import FinishStatus from "../Status/FinishStatus/FinishStatus";
 import RecruitmentStatus from "../Status/RecruitmentStatus/RecruitmentStatus";
 import ReceivingStatus from "../Status/ReceivingStatus/ReceivingStatus";
-import { getPaymentInfo } from "../../api/axios";
-import { Link } from "react-router-dom";
 
 const PostedProjectCard = ({ post }) => {
-  const [paymentInfo, setPaymentInfo] = useState();
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    getPaymentInfo(post.voiceProjectId)
-      .then((json) => setPaymentInfo(json))
-      .then((json) => setLoading(false));
-  }, [post.projectId]);
-
   const [dropDown, setDropDown] = useState(false);
 
   const displayDropdown = () => {
@@ -47,11 +36,7 @@ const PostedProjectCard = ({ post }) => {
             <span>Chưa thanh toán</span>
           </div> */}
           <div className="lpa-icon">
-            {post.projectStatus === "WaitApprove" && <WaitingStatus />}
-            {post.projectStatus === "NotApproved" && <RejectStatus />}
-            {post.projectStatus === "Apply" && <RecruitmentStatus />}
-            {post.projectStatus === "Processing" && <ReceivingStatus />}
-            {post.projectStatus === "Done" && <FinishStatus />}
+            <ReceivingStatus />
           </div>
         </div>
       </div>
@@ -64,27 +49,22 @@ const PostedProjectCard = ({ post }) => {
                   <p className="lpa-dropdown-title">Thông tin thanh toán</p>
                   <div className="lpa-dropdown-bank">
                     <strong>Ngân hàng:</strong>
-                    <span>{paymentInfo.bankNameBuyer}</span>
+                    <span>Ngân hàng Quân Đội (MB_Bank)</span>
                   </div>
                   <div className="lpa-dropdown-bank">
                     <strong>Số tài khoản:</strong>
-                    <span>{paymentInfo.bankNumberBuyer}</span>
+                    <span>012345678910</span>
                   </div>
                   <div className="lpa-dropdown-bank-fullName">
                     <strong>Tên tài khoản:</strong>
-                    <span>{paymentInfo.bankAccountNameBuyer}</span>
+                    <span>Trần Thành Công</span>
                   </div>
                 </div>
               </div>
             </div>
             <div className="button-wrapper">
               <div className="lpa-dropdown-detail-button">
-                <Link
-                  to={`/projectmanagementdetail/${post.voiceProjectId}`}
-                  className="link"
-                >
-                  <button>Xem chi tiết dự án</button>
-                </Link>
+                <button>Xem chi tiết dự án</button>
               </div>
               <div className="lpa-dropdown-confirm-button">
                 <button>Duyệt</button>

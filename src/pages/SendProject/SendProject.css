@@ -78,12 +78,12 @@
     margin-top: 30px;
 }
 .sendProject-description{
-    margin-top: 15px;
+    margin-top: 40px;
 }
 .sendProject-detail{
-    margin-top: 100px;
+    margin-top: 50px;
 }
-.sendProject-time{
+.sendProject-duration{
     margin-top: 50px;
 }
 .sendProject-text-upload{
@@ -93,7 +93,7 @@
     margin-top: 20px;
 }
 .sendProject-text-deadline{
-    margin-top: 8px;
+    margin-top: 10px;
 }
 .sendProject-text-deadline input{
     border: none;
@@ -128,13 +128,13 @@
     margin-top: 20px;
     padding: 10px;
 }
-.sendProject-duration input{
+.sendProject-text-duration input{
     width: 120px;
     border: none;
     outline: none;
     border-radius: 20px;
     font-size: 18px;
-    margin-top: 10px;
+    margin-top: 25px;
     margin-bottom: 10px;
     padding: 5px 10px 5px 20px;
 }

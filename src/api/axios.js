@@ -27,32 +27,12 @@ export const getVoiceList = async (
   return valuesArray;
 };
 
-export const getPostedProjects = async (currentPage, pageSize, sortType) => {
+export const getPostList = async (currentPage, pageSize, sortType) => {
   const response = await axiosOne.get(
     `/api/VoiceProjects/GetListProjectToManagement/${currentPage},${pageSize},${sortType}`
   );
   console.log(response.data.results);
 
-  const valuesArray = Object.values(response.data.results);
-  return valuesArray;
-};
-
-export const getProjectForManagement = async (
-  currentPage,
-  PageSize,
-  sortType,
-  projectType,
-  WaitApprove,
-  NotApproved,
-  Apply,
-  Processing,
-  Done,
-  WaitToAccept,
-  Denied
-) => {
-  const response = await axiosOne.get(
-    `/api/VoiceProjects/SearchByFilterForManager/${currentPage},${PageSize},${sortType},${projectType},${WaitApprove},${NotApproved},${Apply},${Processing},${Done},${WaitToAccept},${Denied},`
-  );
   const valuesArray = Object.values(response.data.results);
   return valuesArray;
 };
@@ -102,18 +82,4 @@ export const voicesFilter = async (
 
   const valuesArray = Object.values(response.data.results);
   return valuesArray;
-};
-
-export const getPaymentInfo = async (projectId) => {
-  const response = await axiosOne.get(
-    `/api/VoiceProjects/GetPaymentInformation/${projectId}`
-  );
-  return response.data;
-};
-
-export const getProjectApprovalDetail = async (projectId) => {
-  const response = await axiosOne.get(
-    `/api/VoiceProjects/GetByID/${projectId}`
-  );
-  return response.data;
 };

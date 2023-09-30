@@ -42,7 +42,7 @@ export default function SendProject() {
                         </div>
                         <div className='sendProject-card-left-row-2'>
                             <div className='sendProject-header'>
-                                <span>Tiêu đề</span>
+                                <span>Tiêu đề:</span>
                             </div>
                             <div className='sendProject-upload'>
                                 <span>Gửi văn bản cần đọc: </span>
@@ -53,7 +53,7 @@ export default function SendProject() {
                             <div className='sendProject-detail'>
                                 <span>Yêu cầu chi tiết:</span>
                             </div>
-                            <div className='sendProject-time'>
+                            <div className='sendProject-duration'>
                                 <span>Thời lượng yêu cầu:</span>
                             </div>
                             <div className='sendProject-deadline'>
@@ -69,12 +69,12 @@ export default function SendProject() {
                                 <input type='file' id='sendProject-file' hidden />
                             </div>
                             <div className='sendProject-text-description'>
-                                <textarea rows={4} cols={60} />
+                                <textarea rows={2} cols={60} />
                             </div>
                             <div className='sendProject-text-detail'>
                                 <textarea rows={2} cols={60} />
                             </div>
-                            <div className='sendProject-duration'>
+                            <div className='sendProject-text-duration'>
                                 <input type='number' />
                             </div>
                             <div className='sendProject-text-deadline'>

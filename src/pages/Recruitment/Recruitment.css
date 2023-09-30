@@ -10,6 +10,7 @@
 .recruitment-card{
     background: #FDF8C8;
     width: 1000px;
+    border-radius: 8px;
     margin-bottom: 30px;
 }
 .recruitment-display{
@@ -60,7 +61,7 @@
 .recruitment-text-demo{
     margin-top: 20px;
 }
-.recruitment-text-demo label{
+.recruitment-text-demo button{
     color: #ffffff;
     border: none;
     border-radius: 6px;
