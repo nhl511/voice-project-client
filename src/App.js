@@ -24,7 +24,7 @@ import VoiceDetail from "./pages/VoiceDetail/VoiceDetail";
 import PersistLogin from "./components/PersistLogin/PersistLogin";
 import Posts from "./pages/Posts/Posts";
 import ProjectUpload from "./pages/ProjectUpload/ProjectUpload";
-import ProjectApproval from "./pages/ProjectApproval/ProjectApproval";
+import PostedProjectsManagement from "./pages/PostedProjectsManagement/PostedProjectsManagement";
 
 const App = () => {
   return (
@@ -38,7 +38,10 @@ const App = () => {
         <Route path="/unauthorized" element={<Unauthorized />} />
         <Route path="/listvoice" element={<ListVoice />} />
         <Route path="/voicedetail/:id" element={<VoiceDetail />} />
-        <Route path="/approval" element={<ProjectApproval />} />
+        <Route
+          path="/postedprojectsmanagement"
+          element={<PostedProjectsManagement />}
+        />
 
         <Route element={<PersistLogin />}>
           <Route element={<RequireAuth allowedRoles={["buyer", "seller"]} />}>

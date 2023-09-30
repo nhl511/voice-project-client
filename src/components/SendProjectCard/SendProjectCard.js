@@ -1,25 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./PostedProjectCard.css";
+import "./SendProjectCard.css";
 
-import WaitingStatus from "../Status/WaitingStatus/WaitingStatus";
-import RejectStatus from "../Status/RejectStatus/RejectStatus";
-import InvitationStatus from "../Status/InvitationSendStatus/InvitationSendStatus";
-import DenyStatus from "../Status/DenyStatus/DenyStatus";
-import FinishStatus from "../Status/FinishStatus/FinishStatus";
-import RecruitmentStatus from "../Status/RecruitmentStatus/RecruitmentStatus";
-import ReceivingStatus from "../Status/ReceivingStatus/ReceivingStatus";
-import { getPaymentInfo } from "../../api/axios";
-
-const PostedProjectCard = ({ post }) => {
-  const [paymentInfo, setPaymentInfo] = useState();
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    getPaymentInfo(post.voiceProjectId)
-      .then((json) => setPaymentInfo(json))
-      .then((json) => setLoading(false));
-  }, [post.projectId]);
-
+const SendProjectCard = ({ post }) => {
   const [dropDown, setDropDown] = useState(false);
 
   const displayDropdown = () => {
@@ -43,15 +25,9 @@ const PostedProjectCard = ({ post }) => {
             </div>
           </div>
           {/* <div className="lpa-status">
-            <span>Chưa thanh toán</span>
-          </div> */}
-          <div className="lpa-icon">
-            {post.projectStatus === "WaitApprove" && <WaitingStatus />}
-            {post.projectStatus === "NotApproved" && <RejectStatus />}
-            {post.projectStatus === "Apply" && <RecruitmentStatus />}
-            {post.projectStatus === "Processing" && <ReceivingStatus />}
-            {post.projectStatus === "Done" && <FinishStatus />}
-          </div>
+              <span>Chưa thanh toán</span>
+            </div> */}
+          <div className="lpa-icon"></div>
         </div>
       </div>
       {dropDown ? (
@@ -63,15 +39,15 @@ const PostedProjectCard = ({ post }) => {
                   <p className="lpa-dropdown-title">Thông tin thanh toán</p>
                   <div className="lpa-dropdown-bank">
                     <strong>Ngân hàng:</strong>
-                    <span>{paymentInfo.bankNameBuyer}</span>
+                    <span>Ngân hàng Quân Đội (MB_Bank)</span>
                   </div>
                   <div className="lpa-dropdown-bank">
                     <strong>Số tài khoản:</strong>
-                    <span>{paymentInfo.bankNumberBuyer}</span>
+                    <span>012345678910</span>
                   </div>
                   <div className="lpa-dropdown-bank-fullName">
                     <strong>Tên tài khoản:</strong>
-                    <span>{paymentInfo.bankAccountNameBuyer}</span>
+                    <span>Trần Thành Công</span>
                   </div>
                 </div>
               </div>
@@ -93,4 +69,4 @@ const PostedProjectCard = ({ post }) => {
   );
 };
 
-export default PostedProjectCard;
+export default SendProjectCard;
