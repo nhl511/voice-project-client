@@ -66,7 +66,7 @@
   margin-top: 10px;
 }
 .projectUpload-card-display .projectUpload-first-row-col-2 select {
-  width: 100px;
+  width: 120px;
   border-radius: 4px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
@@ -90,7 +90,7 @@
   margin-left: 5px;
 }
 .projectUpload-card-display .projectUpload-second-row-col-1 select {
-  width: 80px;
+  width: 125px;
   border-radius: 4px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
@@ -101,7 +101,7 @@
   margin-top: 10px;
 }
 .projectUpload-card-display .projectUpload-second-row-col-2 select {
-  width: 80px;
+  width: 125px;
   border-radius: 4px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
@@ -121,7 +121,7 @@
   margin-top: 10px;
 }
 .projectUpload-third-row-col-1 select {
-  width: 110px;
+  width: 120px;
   border-radius: 4px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
@@ -132,7 +132,7 @@
   margin-top: 10px;
 }
 .projectUpload-third-row-col-2 select {
-  width: 110px;
+  width: 125px;
   border-radius: 4px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
@@ -143,7 +143,7 @@
   margin-top: 10px;
 }
 .projectUpload-third-row-col-3 select {
-  width: 100px;
+  width: 120px;
   border-radius: 4px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
@@ -154,7 +154,7 @@
   margin-top: 10px;
 }
 .projectUpload-fourth-row-col-1 select {
-  width: 100px;
+  width: 120px;
   border-radius: 4px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
@@ -165,7 +165,7 @@
   margin-top: 10px;
 }
 .projectUpload-fourth-row-col-2 select {
-  width: 100px;
+  width: 120px;
   border-radius: 4px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
@@ -176,7 +176,7 @@
   margin-top: 10px;
 }
 .projectUpload-fourth-row-col-3 select {
-  width: 100px;
+  width: 120px;
   border-radius: 4px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
@@ -196,6 +196,15 @@
   margin-top: 10px;
 }
 .projectUpload-fifth-row-col-2 input {
+  width: 100px;
+  border-radius: 4px;
+  font-weight: 600;
+  padding: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 10px;
+}
+.projectUpload-fifth-row-col-3 input {
   width: 100px;
   border-radius: 4px;
   font-weight: 600;

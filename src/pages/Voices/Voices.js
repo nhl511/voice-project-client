@@ -18,6 +18,7 @@ const Voices = () => {
   const [inputRate, setInputRate] = useState(0);
 
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     getVoiceList(currentPage, 10, "new", true)
       .then((json) => setVoices(json))

@@ -121,6 +121,7 @@
   .lpa-dropdown-detail-button
   button {
   border: none;
+  border-radius: 20px;
   padding: 10px 20px;
   font-size: 15px;
   cursor: pointer;
@@ -133,6 +134,7 @@
   .lpa-dropdown-confirm-button
   button {
   border: none;
+  border-radius: 20px;
   padding: 10px 20px;
   font-size: 15px;
   cursor: pointer;

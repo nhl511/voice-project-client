@@ -1,5 +1,6 @@
 import React from 'react'
 import './Recruitment.css';
+import { Link } from 'react-router-dom';
 
 export default function Recruitment() {
     return (
@@ -19,7 +20,7 @@ export default function Recruitment() {
                                 <span>Văn bản demo</span>
                             </div>
                             <div className='recruitment-price'>
-                                <span>Giá</span>
+                                <span>Giá:</span>
                             </div>
                             <div className='recruitment-duration'>
                                 <span>Thời lượng yêu cầu:</span>
@@ -49,8 +50,13 @@ export default function Recruitment() {
                                 </span>
                             </div>
                             <div className='recruitment-text-demo'>
-                                <label htmlFor='recruitment-docx-demo'>Download</label>
-                                <input type='file' id='recruitment-docx-demo' hidden />
+                                <Link
+                                    to="/mp3/test.docx"
+                                    download="Test-Docx-Demo"
+                                    target="blank"
+                                >
+                                    <button >Download</button>
+                                </Link>
                             </div>
                             <div className='recruitment-text-price'>
                                 <span>200,000 vnd</span>
